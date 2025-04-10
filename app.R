@@ -1,27 +1,6 @@
 # CUI-MET R shiny app
-# CUI Dose Optimization Approach for Multiple-dose Randomized Trial Designs.
+# CUI Dose Optimization Approach for Multiple-Dose Multiple-Outcome Randomized Trial Designs.
 # Programmer: Fanni Zhang
-# date: 06/13/2023, initial version v0, basic plot with marginal probs
-# Update: 
-# 10/02/2023 - add features: bootstrap CI option, utility summary, table download 
-# 10/23/2023 - add % optimal dose selected in the utility bootstrap table
-# 11/16/2023 - as Mike suggested, optimize the boot function without reshaping data,
-#              reset seed everytime boot is run to allow reproducibility
-#              remove sys.sleep()
-# 03/22/2024 - add modeling approaches 
-#              add functions gen.logit and gen.DRmod  
-#              logistic (linear/quadratic) based on Mike's constrained logit code 
-#              Emax, exponential using DR models from DoseFinding package
-#              make changes to the functions gen.utility, gen.plot accordingly
-#              include selected method in the download table summary
-# 04/02/2024 - update points in the plots
-# 05/31/2024 - use the "general" approach for a binary regression in gen.DRmod 
-#              as illustrated at https://www.rdocumentation.org/packages/DoseFinding/versions/1.1-1/topics/fitMod
-# 06/13/2024 - update ll.logit.constrained and gen.logit functions to incorporate flexible monotonic assumption
-#              add input options to allow user to define the monotonic assumptions when a logit model is selected
-# 09/03/2024 - incorporate method selection for each ED
-# 10/28/2024 - add plot download
-# 11/01/2024 - update code to handle endpoint data with missing records
 
 library(shiny)
 library(dplyr)
@@ -541,7 +520,7 @@ ui <- fluidPage(
   navbarPage("",
              
     # CUI-MET Tab
-    tabPanel("CUI-MET (Beta Version)",
+    tabPanel("CUI-MET",
              
       sidebarLayout(
         
@@ -811,8 +790,6 @@ server <- function(input, output,session) {
       
       EPs.model <- model.char[match(mEP.vec, model.label)]
       EPs.mono <- EPs[monoEP.vec]
-      #print(EPs.model)
-      #print(EPs.mono)
       
       out <- gen.utility(data = data, wEPs = wEP.vec, models = EPs.model, EPs.mono = EPs.mono)
 
@@ -1106,8 +1083,7 @@ server <- function(input, output,session) {
         cui.input$Monotonicity <- ifelse(EPs %in% c("Toxicity", utility()$EPs.mono), "Yes", "No")
         
         cui.output <- utility()$out$data.sum
-        #cui.output$UtilityMean <- sprintf(cui.output$UtilityMean, fmt = fmt)
-        #cui.output$UtilityWeightedMean <- sprintf(cui.output$UtilityWeightedMean, fmt = fmt)
+        
         cui.sum <- matrix("", nrow = nrow(cui.input) + nrow(cui.output) + 5,
                           ncol = max(ncol(cui.input), ncol(cui.output)))
         cui.sum <- data.frame(cui.sum)
