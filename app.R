@@ -1,5 +1,5 @@
 # CUI-MET R shiny app
-# CUI Dose Optimization Approach for Multiple-Dose Multiple-Outcome Randomized Trial Designs.
+# CUI Dose Optimization Approach for Multiple-Dose Multiple-Outcome Randomized Trial Designs
 # Programmer: Fanni Zhang
 
 library(shiny)
