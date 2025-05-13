@@ -19,4 +19,4 @@ A detailed user guide is available here:
 
 If you use or reference this tool in your work, please cite the following preprint:
 
-Zhang, F., K. Broglio, M. Sweeting and G. D'Angelo (2025). *CUI-MET: Clinical Utility Index Dose Optimization Approach for Multiple-Dose, Multiple-Outcome Randomized Trial Designs*. arXiv preprint [arXiv:2505.03633](https://arxiv.org/abs/2505.03633).
+Zhang, F., Broglio, K., Sweeting, M., and D'Angelo, G. (2025). *CUI-MET: Clinical Utility Index Dose Optimization Approach for Multiple-Dose, Multiple-Outcome Randomized Trial Designs*. arXiv preprint [arXiv:2505.03633](https://arxiv.org/abs/2505.03633).
