@@ -10,7 +10,7 @@ Fanni Zhang (<fanni.zhang@astrazeneca.com>)
 
 ## Usage
 
-This application was developed using R version 4.3.1 on AstraZeneca's Secure Compute Platform (SCP).
+This application was developed using R version 4.3.1 on AstraZeneca's Scientific Computing Platform (SCP).
 
 A detailed user guide is available here:  
 [CUIMET User Guide (PDF)](https://github.com/azu-oncology-rd/rshiny_cuimet/blob/main/CUIMET_UserGuide.pdf)
