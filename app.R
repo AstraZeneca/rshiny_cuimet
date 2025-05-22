@@ -227,7 +227,7 @@ gen.utility <- function(data, wEPs, models, EPs.mono){
   EPs <- setdiff(colnames(data), c("ID", "Dose"))
   
   # get observed marginal prob per dose level in data.sum.obs
-  data.sum <- data %>% group_by(Dose) %>% summarise(across(all_of(EPs), mean, na.rm = TRUE))
+  data.sum <- data %>% group_by(Dose) %>% summarise(across(all_of(EPs), \(x) mean(x, na.rm = TRUE)))
   data.sum.obs <- data.sum
   
   # calculate predicted marginal probabilities based on specified models
